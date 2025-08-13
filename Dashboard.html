@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Dashboard</title>
+    <style>
+        /* Reset some default browser styles */
+body, h1, h2, h3, p {
+    body, h1, h2, h3, p {
+        background-color: #f1e8e6;
+    margin: 0;
+    padding: 0;
+}
+}
+
+/* Styling for the navigation bar */
+.navbar {
+    background-color: #9854cb; /* Background color for the navbar */
+    padding: 40px 0; /* Add top and bottom padding */
+}
+
+/* Styling for the navigation links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+}
+
+.nav-links li {
+    margin: 0 20px; /* Add spacing between the links */
+    position: relative; /* Create a stacking context */
+}
+
+.nav-links a {
+    text-decoration:none ;
+    font-size: larger;
+    font-weight: bold;
+    color: white; /* Link color */
+    font-family:'Noto Sans', sans-serif;font-size:20px;font-weight:400;
+    text-shadow: 1px 1px 2px #0a0b0c;
+    filter: dropshadow(color=#050505, offx=1, offy=1);
+    transition: color 0.3s, font-size 0.3s; 
+    border-bottom:dotted 2px #fff;
+}
+
+h1.logo {
+    color:white;
+    padding:4%;
+    border-radius:50%;
+    font-size:50px;
+    font-style:italic;
+    
+    /* Shadow behind text */
+    text-shadow: 1px 1px 2px #0a0b0c;
+    filter: dropshadow(color=#050505, offx=1, offy=1);
+
+}
+
+
+h2.title {
+    font-weight:normal;
+    font-style:italic;
+    color:white;
+    line-height:26px;
+    font-size:34px;
+}
+
+/* Intro */        
+.intro-block p {
+    font-size:18px;
+    font-style:italic;
+    color:#595959;
+    margin:40px 0;
+}
+
+/* Photo */
+.image {
+    -webkit-box-shadow:  0px 0px 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow:  0px 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.image h2 {
+    font-size: 16px;
+}
+.image img {
+    min-height:230px;
+    max-height:230px;
+    border-left:10px solid white;
+    border-right:10px solid white;
+    border-top:10px solid white;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box; /* Opera/IE 8+ */
+}
+
+.zoom-on-hover {
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+}
+.zoom-on-hover:hover {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+/* Rotate the images */
+.rotate-right {
+    -moz-transform:rotate(2deg);
+    -webkit-transform: rotate(2deg);
+    -o-transform:rotate(2deg);
+    -ms-transform:rotate(2deg);
+    transform:rotate(2deg);
+}
+.rotate-left {
+    -moz-transform:rotate(-2deg);
+    -webkit-transform: rotate(-2deg);
+    -o-transform:rotate(-2deg);
+    -ms-transform:rotate(-2deg);
+    transform:rotate(-2deg);
+}
+
+.caption {
+    color:#999999;
+    background: white;
+    font-style:italic;
+}
+.caption h2 {
+    font-size:20px;
+}
+    
+/* Footer */
+.footer-wrap {
+    margin: 0 2%;
+    padding: 30px 0 50px 0;
+    border-top: 1px solid white;
+    color: white;
+    
+    /* Shadow behind text */
+    text-shadow: 1px 1px 1px #6f828f;
+    filter: dropshadow(color=#6f828f, offx=1, offy=1);
+}
+footer a {
+    color: white;
+}
+footer small {
+    font-size: 12px;
+}
+body, html {
+    margin: 0;
+    padding: 0
+}
+a {
+    color: #000000;
+}
+h1 {
+    font-size: 24px;
+}
+h2 {
+    font-size: 20px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+ul {
+    margin-left: 0;
+    padding-left: 1em;
+    line-height: 1.5em;
+}
+hr {
+    clear: both;
+}
+
+/* Layout */
+footer, .wrapper {
+    width: 80%;
+    max-width: 900px;
+    min-width: 550px;
+    margin: 0 auto;
+}
+section {
+    width: 100%;
+}
+
+/* Header */
+header {
+    padding: 30px 0;
+    text-align: left;
+}
+header h1.logo {
+    display: inline-block;
+    margin: 0;
+}
+header h2.title {
+    display: inline-block;
+    float: right;
+    padding: 4%;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+}
+.footer-wrap {
+    margin: 0 2%;
+    padding: 30px 0 50px 0;
+}
+
+/* Grids */
+ul.grid {
+    margin: 20px 0;
+    padding: 0;
+    list-style: none;
+}
+ul.grid li {
+    position: relative;
+    margin: 3% 2%;  
+}
+ul.grid li:last-child {
+    margin: 0 2%;
+}
+ul.grid li a {
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+}
+ul.grid.half-width li {
+    width: 46%;
+    margin: 2%;
+    float: left;
+}
+ul.third-width li {
+    width:29.3%;
+    margin:0 2% 2%;
+    float:left;
+}
+
+/* Photo */
+.image {
+    z-index: 2;
+    position: relative;
+    overflow: hidden;
+}
+.image img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.image h2 {
+    margin: 0;
+}
+
+/* Caption */
+.caption {
+    margin: 0;
+    padding: 20px;
+    width: 100%;
+    display: block;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box; /* Opera/IE 8+ */
+}
+
+/* Column */
+.column {
+    width:96%;
+    margin:2%;
+    float:none;
+    clear:both;
+}
+
+/* Group / Clear floating */
+.group:after {
+    visibility: hidden;
+    display: block;
+    content: "";
+    clear: both;
+    height: 0;
+}
+
+
+/* Styling for the dropdown menu */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff; /* Background color for the dropdown menu */
+    box-shadow: 0 8px 6px rgba(0, 0, 0, 0.4); /* Add a shadow */
+    max-height: 0; /* Initially, the dropdown menu has zero height */
+    overflow: hidden; /* Hide content that overflows the max-height */
+    transition: max-height 0.3s ease-in-out; 
+    visibility: 0.3s ease-in-out; 
+}
+.dropdown-menu a {
+    color: #9854cb;
+    font-weight: bold;
+    font-family:'Noto Sans', sans-serif;font-size:20px;font-weight:400;
+    text-shadow: 1px 1px 2px #0a0b0c;
+    filter: dropshadow(color=#050505, offx=1, offy=1);line-height:1.5;
+}
+.nav-links a:hover {
+    color: black; /* Change the link color on hover */
+    font-size: 1.6em; /* Change the font size on hover */
+    border-bottom:solid 2px #fff;
+}
+.dropdown:hover .dropdown-menu {
+    display: block; /* Show the dropdown menu on hover */
+    max-height: 400px;
+    transition-delay: 0.5s; 
+  }
+
+  button.back-to-top{
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #fff;
+	height: 0px;
+  width: 0px;
+  overflow: hidden;
+	border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+  color: transparent;
+	clear: both;
+  visibility: hidden;
+  position: fixed;
+  cursor: pointer;
+  display: block;
+  border: none;
+  right: 50px;
+	bottom: 75px;
+  font-size: 0px;
+  outline: 0 !important;
+  z-index: 99;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+button.back-to-top:hover,
+button.back-to-top:active,
+button.back-to-top:focus,{
+  outline: 0 !important;
+}
+button.back-to-top::before,
+button.back-to-top::after {
+  content: "";
+    display: block;
+    vertical-align: middle;
+    border-bottom: solid 10px #9854cb;
+    border-left: solid 10px transparent;
+    line-height: 0;
+    border-right: solid 10px transparent;
+    height: 0;
+    margin: 18px auto 0;
+    width: 0;
+  border-radius:20px;
+  visibility: hidden;
+}
+button.back-to-top.show::after,
+button.back-to-top.show::before{
+  visibility: visible;
+}
+button.back-to-top::after {
+  border-bottom-color:#fff;
+      position: relative;
+  top:-24px;
+}
+button.back-to-top.show {
+  display: block;
+  background: #fff;
+  color: #00ab6c;
+  font-size: 25px;
+  right: 25px;
+	bottom: 50px;
+  height: 50px;
+  width: 50px;
+  visibility: visible;
+	box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
+}
+button.back-to-top.show:active {
+  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Filter.html">Gallery</a></li>
+        </ul>
+    </nav>
+        <header>
+          <div class="wrapper group">
+              <h1 class="logo">Today's Museum</h1>
+          </div>
+      </header>
+      <div class="wrapper group">
+          <section id="content">
+              <ul class="grid half-width group">
+                  <li class="zoom-on-hover">
+                          <div class="image">
+                              <img src="photos\internship (8).avif">
+                              
+                          </div>
+                  </li>
+                  <li class="zoom-on-hover">
+                          <div class="image">
+                              <img src="photos\internship (10).avif">
+                              
+                          </div>
+                  </li>
+                  <li class="zoom-on-hover">
+                          <div class="image">
+                              <img src="photos\internship (11).avif">
+                              
+                          </div>
+                  </li>
+                  <li class="zoom-on-hover">
+                          <div class="image">
+                              <img src="photos\internship (15).avif">
+                              
+                          </div>
+                  </li>
+                  <li class="zoom-on-hover">
+                    <div class="image">
+                        <img src="photos\internship (8).jpg">
+                        
+                    </div>
+            </li>
+            <li class="zoom-on-hover">
+                    <div class="image">
+                        <img src="photos\internship (4).webp">
+                        
+                    </div>
+                </a>
+            </li>
+            <li class="zoom-on-hover">
+                    <div class="image">
+                        <img src="photos\internship (14).avif">
+                        
+                    </div>
+            </li>
+            <li class="zoom-on-hover">
+                    <div class="image">
+                        <img src="photos\internship (13).avif">
+                        
+                    </div>
+            </li>
+              </ul>
+          </section>
+      </div>
+      <button class="back-to-top" type="button"></button>
+    </body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/global.min.js"></script>
+   <script>
+// JavaScript code for updating the carousel items
+const carousel = document.querySelector('.carousel');
+const numItems = carousel.children.length;
+let currentItem = 0; // Initialize the current item
+
+function updateCarousel() {
+    currentItem = (currentItem + 1) % numItems;
+    carousel.style.transform = `translateX(-${currentItem * 100}%)`;
+}
+
+// Automatically advance the carousel every 5 seconds (adjust as needed)
+setInterval(updateCarousel, 5000);
+// Back to top
+var amountScrolled = 200;
+var amountScrolledNav = 25;
+
+$(window).scroll(function() {
+  if ( $(window).scrollTop() > amountScrolled ) {
+    $('button.back-to-top').addClass('show');
+  } else {
+    $('button.back-to-top').removeClass('show');
+  }
+});
+
+$('button.back-to-top').click(function() {
+  $('html, body').animate({
+    scrollTop: 0
+  }, 800);
+  return false;
+});
+    </script>
+</html>

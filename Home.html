@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+       body {
+            font-family: Calibri;
+            margin: 0;
+            padding: 0;
+            background-color: #F4F5F7;
+        }
+h1{font-weight: bolder;
+  font-style: italic;
+  size: 24px;
+}
+h2{
+  size:20px;
+  font-weight: bold;
+  font-style: italic;
+}
+        /* Navigation Bar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #9854cb;
+            color: white;
+            padding: 40px 60px;
+        }
+
+        .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff; /* Background color for the dropdown menu */
+    box-shadow: 0 8px 6px rgba(0, 0, 0, 0.4); /* Add a shadow */
+    max-height: 0; /* Initially, the dropdown menu has zero height */
+    overflow: hidden; /* Hide content that overflows the max-height */
+    transition: max-height 0.3s ease-in-out; 
+    visibility: 0.3s ease-in-out; 
+}
+.nav-links a:hover {
+    color: #9854cb; /* Change the link color on hover */
+    font-size: 1.3em; /* Change the font size on hover */
+}
+.pointer {
+  cursor: pointer;
+}
+.dropdown:hover .dropdown-menu {
+    display: block; /* Show the dropdown menu on hover */
+    max-height: 400px;
+    transition-delay: 0.5s; 
+  }
+
+        .menu-icon {
+            font-size: 32px;
+            box-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2); 
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            display: none;
+        }
+
+        .nav-links.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top:120px;
+            left: 30px;
+            bottom: 10px;
+            transition-delay: 0.5s; 
+            border-radius:20px;
+            background-color: #fff; /* Background color for the dropdown menu */
+    box-shadow: 0 8px 6px rgba(0, 0, 0, 0.4); /* Add a shadow */
+    max-height: 200px; /* Initially, the dropdown menu has zero height */
+    overflow: hidden; /* Hide content that overflows the max-height */
+    transition: max-height 0.3s ease-in-out; 
+    visibility: 0.3s ease-in-out; 
+            z-index: 1;
+        }
+
+        .nav-links li {
+            margin-left: 10px;
+            margin-top: 25px;
+            margin-right: 10px;
+            margin-right: 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color:#9854cb;font-family:'Noto Sans', sans-serif;font-size:20px;font-weight:400;
+    text-shadow: 1px 1px 2px #0a0b0c;
+    filter: dropshadow(color=#050505, offx=1, offy=1);
+
+        }
+        .auth-links {
+  text-align: center; /* Center-align the content */
+  margin-top: 20px; /* Add some top margin for spacing */
+}
+        .auth-links a {
+            margin-left: 20px;
+            color: white;
+            font-family:'Noto Sans', sans-serif;font-size:20px;font-weight:400;
+    text-shadow: 1px 1px 2px #0a0b0c;
+    filter: dropshadow(color=#050505, offx=1, offy=1);
+            text-decoration: none;
+           display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); 
+            text-decoration: none;
+            background-color: #9854cb;
+           height: 100px;
+           width: 1000px;
+            border-radius: 14px;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+            }
+.title{
+  border: #050505;
+}
+        .section {
+            padding: 20px;
+            text-align: center;
+        }
+        #about {
+        background-color: #9854cb; /* Change to the background color you prefer */
+        padding: 20px;
+        color:white;
+        position: relative; /* Add position relative for the shadow effect */
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+        margin-top: 10px; 
+}
+#members {
+        background-color: #9854cb; /* Change to the background color you prefer */
+        padding: 20px;
+        color:white;
+        position: relative; /* Add position relative for the shadow effect */
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+        margin-top: 10px;
+}
+#contact {
+        background-color: #9854cb; /* Change to the background color you prefer */
+        padding: 20px;
+        color:white;
+        position: relative; /* Add position relative for the shadow effect */
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+        margin-top: 10px;
+}
+        h2 {
+            font-size: 24px;
+        }
+        h1{
+          font-size: 48px;
+        }
+        p {
+            font-size: 16px;
+        }
+       .feedback-form {
+            text-align: center;
+            margin: 20px auto;
+            max-width: 400px;
+            padding: 20px;
+            color:#9854cb;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.4); /* Add a subtle shadow */
+        margin-top: -10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        button {
+            background-color: #9854cb;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        button:hover {
+            background-color: #9854cb;
+            transform: scale(1.05);
+        }
+        @media (max-width: 768px) {
+    .about-us,
+    .services,
+    .contact {
+        margin-top: 0; 
+    }}
+    .footer-wrap {
+            margin: 0 2%;
+            padding: 30px 0 50px 0;
+            border-top: 1px solid white;
+            color: white;
+            text-shadow: 1px 1px 1px #6f828f;
+            filter: dropshadow(color=#6f828f, offx=1, offy=1);
+        }
+        footer a {
+            color: white;
+        }
+        footer small {
+            font-size: 12px;
+        }
+button.back-to-top{
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #fff;
+	height: 0px;
+  width: 0px;
+  overflow: hidden;
+	border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+  color: transparent;
+	clear: both;
+  visibility: hidden;
+  position: fixed;
+  cursor: pointer;
+  display: block;
+  border: none;
+  right: 50px;
+	bottom: 75px;
+  font-size: 0px;
+  outline: 0 !important;
+  z-index: 99;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+button.back-to-top:hover,
+button.back-to-top:active,
+button.back-to-top:focus,{
+  outline: 0 !important;
+}
+button.back-to-top::before,
+button.back-to-top::after {
+  content: "";
+    display: block;
+    vertical-align: middle;
+    border-bottom: solid 10px #9854cb;
+    border-left: solid 10px transparent;
+    line-height: 0;
+    border-right: solid 10px transparent;
+    height: 0;
+    margin: 18px auto 0;
+    width: 0;
+  border-radius:20px;
+  visibility: hidden;
+}
+button.back-to-top.show::after,
+button.back-to-top.show::before{
+  visibility: visible;
+}
+button.back-to-top::after {
+  border-bottom-color:#fff;
+      position: relative;
+  top:-24px;
+}
+button.back-to-top.show {
+  display: block;
+  background: #fff;
+  color: #00ab6c;
+  font-size: 25px;
+  right: 25px;
+	bottom: 50px;
+  height: 50px;
+  width: 50px;
+  visibility: visible;
+	box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
+}
+button.back-to-top.show:active {
+  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
+}
+:root {
+  --image-size: 500px;
+}
+.container {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: white;
+}
+.gallery {
+  max-width: 800px;
+  width: 100%;
+  height: 30rem;
+  position: relative;
+  display: grid;
+}
+.slider {
+  display: flex;
+  position: relative;
+}
+.wrapper {
+  position: relative;
+  display: none;
+  transition: transform 0.5s ease-out, left 0.5s ease-out;
+}
+.flipped {
+  position: absolute;
+  bottom: calc(-100% - 10px);
+  transform: scaleY(-1);
+}
+.wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: calc(-100% - 10px);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(19, 19, 19, 0.75),
+    rgba(19, 19, 19, 1) 50%
+  );
+}
+.wrapper:has(+ * + * + .selected) {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - var(--image-size));
+  transform: translate3d(-50%, -50%, 0) scale(0);
+  z-index: 0;
+}
+.wrapper:has(+ * + .selected) {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - var(--image-size) / 2);
+  transform: translate3d(-50%, -50%, 0) scale(0.8);
+  z-index: 1;
+}
+.wrapper:has(+ .selected) {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - var(--image-size) / 4);
+  transform: translate3d(-50%, -50%, 0) scale(0.9);
+  z-index: 2;
+}
+.selected {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 3;
+}
+.selected + .wrapper {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + var(--image-size) / 4);
+  transform: translate3d(-50%, -50%, 0) scale(0.9);
+  z-index: 2;
+}
+.selected + * + .wrapper {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + var(--image-size) / 2);
+  transform: translate3d(-50%, -50%, 0) scale(0.8);
+  z-index: 1;
+}
+.selected + * + * + .wrapper {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + var(--image-size));
+  transform: translate3d(-50%, -50%, 0) scale(0);
+  z-index: 0;
+}
+.arrows {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  z-index: 4;
+}
+.arrows .left,
+.arrows .right {
+  position: relative;
+  cursor: pointer;
+}
+.arrows .left.disabled,
+.arrows .right.disabled {
+  opacity: 0.5;
+}
+.arrows .left::before,
+.arrows .right::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 3rem;
+  height: 4px;
+  transform: translateY(-50%);
+}
+.arrows .left:before {
+  right: -100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+}
+.arrows .right::before {
+  left: -100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1)
+  );
+}
+.arrows svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: #fff;
+}
+img {
+  width: 500px; /* Set a fixed width for all images */
+      height: 350px;
+  border-radius: 6px;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="menu-icon pointer" onclick="toggleMenu()">&#9776;</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="title">
+          <h1>DesignVista</h1>
+        </div>
+    </nav>
+    <div class="auth-links">
+      <p></p>
+      <a href="Dashboard.html">Unveiling Creativity: Where Graphics Come Alive ! ! ! CLICK here to land...</a>
+  </div>
+    <div class="container">
+    <div class="gallery">
+      <div id="slider" class="slider">
+        <div class="wrapper selected">
+          <img src="photos\internship (8).avif" alt="Lotus Temple" />
+          <img src="photos\internship (8).avif" alt="Lotus Temple" class="flipped" />
+        </div>
+        <div class="wrapper">
+          <img src="photos\internship (10).avif" alt="Taj Mahal" />
+          <img src="photos\internship (10).avif" alt="Taj Mahal" class="flipped" />
+        </div>
+        <div class="wrapper">
+          <img src="photos\internship (11).avif" alt="Lotus Temple" />
+          <img src="photos\internship (11).avif" alt="Lotus Temple" class="flipped" />
+        </div>
+        <div class="wrapper">
+          <img src="photos\internship (15).avif" alt="Taj Mahal" />
+          <img src="photos\internship (15).avif" alt="Taj Mahal" class="flipped" />
+        </div>
+        <div class="wrapper">
+          <img src="photos\internship (8).jpg" alt="Lotus Temple" />
+          <img src="photos\internship (8).jpg" alt="Lotus Temple" class="flipped" />
+        </div>
+        <div class="wrapper">
+          <img src="photos\internship (4).webp" alt="Taj Mahal" />
+          <img src="photos\internship (4).webp" alt="Taj Mahal" class="flipped" />
+        </div>
+        <!-- Add more images with your custom paths -->
+      </div>
+      <div class="arrows">
+        <div class="left">
+          <svg viewBox="0 0 512 512" width="100" title="chevron-circle-left">
+            <path d="M256 504C119 504 8 393 8 256S119 8 256 8s248 111 248 248-111 248-248 248zM142.1 273l135.5 135.5c9.4 9.4 24.6 9.4 33.9 0l17-17c9.4-9.4 9.4-24.6 0-33.9L226.9 256l101.6-101.6c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L142.1 239c-9.4 9.4-9.4 24.6 0 34z" />
+          </svg>
+        </div>
+        <div class="right">
+          <svg viewBox="0 0 512 512" width="100" title="chevron-circle-right">
+            <path d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h1>About Us</h1>
+        <h3>
+          Welcome to VINAYAK PRINT PACK, where creativity meets innovation!, we are a passionate team of graphic designers and digital artists dedicated to transforming ideas into stunning visual experiences.
+        </h3>
+         <h1> Our Mission</h1>
+         <h3>
+          At VINAYAK PRINT PACK, our mission is to create visually compelling graphics that tell stories, evoke emotions, and inspire action. We believe that great design has the power to communicate powerful messages and connect people in meaningful ways.
+        </h3>
+          <h1>What We Do</h1>
+          
+          <h3>
+           We specialize in a wide range of graphic design services, including:<br>
+
+<b><u>Logo Design:</u></b> Crafting unique and memorable logos that represent your brand identity.<br>
+<b><u>Web Design:</u></b> Creating user-friendly and visually appealing websites that engage visitors.<br>
+<b><u>Print Design:</u></b> Designing eye-catching brochures, flyers, business cards, and more.<br>
+<b><u>Digital Illustrations:</u></b> Bringing concepts to life with detailed and vibrant illustrations.<br>
+<b><u>Branding:</u></b> Developing cohesive branding strategies to enhance your company's image.
+        </h3>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <p>Feel free to get in touch with us through the contact form below.</p>
+
+        <!-- Feedback Section -->
+        <div class="feedback-form">
+            <form id="feedbackForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-wrap">
+            <small>All rights are reserved</small> 
+        </div>
+    </footer>
+    <button class="back-to-top" type="button"></button>
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+<script src="js/jquery.fancybox.min.js"></script>
+<script src="js/global.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+         // JavaScript to handle form submission
+         document.getElementById("feedbackForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            
+            // You can add code here to handle form submission, e.g., sending data to a server.
+            // For this example, we'll just display a message.
+            
+            alert("Thank you for your feedback!");
+        });
+        // Back to top
+var amountScrolled = 200;
+var amountScrolledNav = 25;
+$(window).scroll(function() {
+  if ( $(window).scrollTop() > amountScrolled ) {
+    $('button.back-to-top').addClass('show');
+  } else {
+    $('button.back-to-top').removeClass('show');
+  }
+});
+$('button.back-to-top').click(function() {
+  $('html, body').animate({
+    scrollTop: 0
+  }, 800);
+  return false;
+});
+const gallery = document.getElementById("slider");
+    const left = document.getElementsByClassName("left")[0];
+    left.classList.add("disabled");
+    const right = document.getElementsByClassName("right")[0];
+    const images = document.querySelectorAll(".wrapper");
+    var selected = 0;
+    right.onclick = function () {
+      selected++;
+      if (selected >= images.length) {
+        selected = 0;
+      }
+      handleSelection();
+    };
+    left.onclick = function () {
+      selected--;
+      if (selected < 0) {
+        selected = images.length - 1;
+      }
+      handleSelection();
+    };
+    function handleSelection() {
+      for (let i = 0; i < images.length; i++) {
+        if (i === selected) {
+          images[i].classList.add("selected");
+        } else {
+          images[i].classList.remove("selected");
+        }
+      }
+    }
+    handleSelection(); // Initialize the selection
+    </script>
+</html>
